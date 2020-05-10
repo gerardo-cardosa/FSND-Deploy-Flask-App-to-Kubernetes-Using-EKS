@@ -11,7 +11,7 @@
     pre_build:
         commands:
           - echo "========**********===============___________================"
-          - echo $REPOSITORY_URI:$TAG
+          - ls
           - TAG="$REPOSITORY_NAME.$REPOSITORY_BRANCH.$ENVIRONMENT_NAME.$(date +%Y-%m-%d.%H.%M.%S).$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
           - sed -i 's@CONTAINER_IMAGE@'"$REPOSITORY_URI:$TAG"'@' simple-jwt-api.yml
           - $(aws ecr get-login --no-include-email)
