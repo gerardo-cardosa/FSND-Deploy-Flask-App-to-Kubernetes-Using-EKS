@@ -16,6 +16,8 @@
           - export KUBECONFIG=$HOME/.kube/config
           - echo "========**********===============_******* TESTS *****__================"
           - pip3 install -r requirements.txt
+          - pytest --version
+          - pytest
     build:
       commands:
         - docker build --tag $REPOSITORY_URI:$TAG .
