@@ -15,8 +15,8 @@
           - $(aws ecr get-login --no-include-email)
           - export KUBECONFIG=$HOME/.kube/config
           - echo "========**********===============_******* TESTS *****__================"
-          - pip3 install requirements.txt
-          - python3 test_main.py
+          - pip3 install -r requirements.txt
+          - pytest -q test_main.py
     build:
       commands:
         - docker build --tag $REPOSITORY_URI:$TAG .
